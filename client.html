@@ -58,11 +58,19 @@ BINGO GAME
 
 	var appid,appkey,appsecret;
 
-	const APPID = APPID;
-	const APPKEY = APPKEY;
-	const APPSECRET = APPSECRET;
+    if (parameters_string.length==3) {
+		appid = parameters_string[0];
+		appkey = parameters_string[1];
+		appsecret = parameters_string[2];
 
-	var playername = prompt("Please enter your name", "");
+		var playername = prompt("Please enter your name", "");
+	}else{
+		document.getElementById("checkNumber").innerHTML = 'appid or auth invalid<br>http://'+window.location.host+window.location.pathname+'#APPID:KEY:SECRET';
+	}
+	
+	const APPID = appid;
+	const APPKEY = appkey;
+	const APPSECRET = appsecret;
 
 	var microgear = Microgear.create({
 		gearkey: APPKEY,
